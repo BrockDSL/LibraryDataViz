@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Students Helped in Instruction Sessions During 2017</title>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+
+  </head>
+<body>	
+<script>
+DATA_FILE = "students_in_sessions_2017.csv";
+
+
+var width = 960,
+    height = 136,
+    cellSize = 17;
+
+var formatPercent = d3.format(".1%");
+
+var color = d3.scaleQuantize()
+    .domain([-0.05, 0.05])
+    .range(["#a50026", "#d73027", "#f46d43", "#fdae61", "#fee08b", "#ffffbf", "#d9ef8b", "#a6d96a", "#66bd63", "#1a9850", "#006837"]);
+
+var svg = d3.select("body")
+  .selectAll("svg")
+  .data(d3.range(2016, 2018))
+  .enter().append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + ((width - cellSize * 53) / 2) + "," + (height - cellSize * 7 - 1) + ")");
+
+svg.append("text")
+    .attr("transform", "translate(-6," + cellSize * 3.5 + ")rotate(-90)")
+    .attr("font-family", "sans-serif")
+    .attr("font-size", 10)
+    .attr("text-anchor", "middle")
+    .text(function(d) { return d; });
+
+var rect = svg.append("g")
+    .attr("fill", "none")
+    .attr("stroke", "#ccc")
+  .selectAll("rect")
+  .data(function(d) { return d3.timeDays(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
+  .enter().append("rect")
+    .attr("width", cellSize)
+    .attr("height", cellSize)
+    .attr("x", function(d) { return d3.timeWeek.count(d3.timeYear(d), d) * cellSize; })
+    .attr("y", function(d) { return d.getDay() * cellSize; })
+    .datum(d3.timeFormat("%Y-%m-%d"));
+
+svg.append("g")
+    .attr("fill", "none")
+    .attr("stroke", "#000")
+  .selectAll("path")
+  .data(function(d) { return d3.timeMonths(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
+  .enter().append("path")
+    .attr("d", pathMonth);
+
+d3.csv(DATA_FILE, function(error, csv) {
+  if (error) throw error;
+
+  var data = d3.nest()
+      .key(function(d) { return d.Date; })
+      .rollup(function(d) { return d[0].Students; })
+    .object(csv);
+
+  rect.filter(function(d) { return d in data; })
+      .attr("fill", function(d) { return color(data[d]); })
+    .append("title")
+      .text(function(d) { return d + " : " + data[d] + " Students"; });
+});
+</script>
+</body>
+</html>
