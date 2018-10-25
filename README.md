@@ -13,7 +13,7 @@ The Library at Brock University generates a lot of data. Some of that data can b
  || [Git Repository](https://github.com/BrockDSL/LibraryDataViz)
 ## Data Files
 
-_students_in_sessions_2017.csv_
+_students_in_sessions_2017.csv_ [link](https://brockdsl.github.io/LibraryDataViz/students_in_sessions_2017.csv)
 
 Data is in two columns, date and number of students that were in a session.
 
