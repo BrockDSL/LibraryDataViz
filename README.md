@@ -3,7 +3,7 @@
 [@brock_dsl](https://twitter.com/brock_dsl)
 
 
-#Library Data for Visualizations
+# Library Data for Visualizations
 
 ## Intro
 
@@ -15,7 +15,7 @@ _students_in_sessions_2017.csv_
 
 Data is in two columns, date and number of students that were in a session.
 
-[students_in_sessions_eg1.html]()
+[students_in_sessions_eg1.html](students_in_sessions_eg1.html)
 Uses D3 to create gitHub style calendar of students seen per day
 
 
