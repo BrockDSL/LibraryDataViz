@@ -11,7 +11,7 @@
   </head>
 <body>	
 <script>
-DATA_FILE = "students_in_sessions_2017.csv";
+DATA_FILE = "./students_in_sessions_2017.csv";
 
 
 var width = 960,
@@ -26,7 +26,7 @@ var color = d3.scaleQuantize()
 
 var svg = d3.select("body")
   .selectAll("svg")
-  .data(d3.range(2016, 2018))
+  .data(d3.range(2017, 2018))
   .enter().append("svg")
     .attr("width", width)
     .attr("height", height)
@@ -73,6 +73,18 @@ d3.csv(DATA_FILE, function(error, csv) {
     .append("title")
       .text(function(d) { return d + " : " + data[d] + " Students"; });
 });
+
+function pathMonth(t0) {
+  var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
+      d0 = t0.getDay(), w0 = d3.timeWeek.count(d3.timeYear(t0), t0),
+      d1 = t1.getDay(), w1 = d3.timeWeek.count(d3.timeYear(t1), t1);
+  return "M" + (w0 + 1) * cellSize + "," + d0 * cellSize
+      + "H" + w0 * cellSize + "V" + 7 * cellSize
+      + "H" + w1 * cellSize + "V" + (d1 + 1) * cellSize
+      + "H" + (w1 + 1) * cellSize + "V" + 0
+      + "H" + (w0 + 1) * cellSize + "Z";
+}
+
 </script>
 </body>
 </html>

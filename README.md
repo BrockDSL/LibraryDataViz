@@ -9,6 +9,8 @@
 
 The Library at Brock University generates a lot of data. Some of that data can be found in this repository. Everything is in csv files and are hopefully easy to understand. There is some template code for generating basic visualizations using [D3](https://d3js.org/)
 
+[Live Version of Site](https://brockdsl.github.io/LibraryDataViz/)
+
 ## Data Files
 
 _students_in_sessions_2017.csv_
