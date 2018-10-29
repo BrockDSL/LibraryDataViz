@@ -21,14 +21,14 @@
 DATA_FILE = "./students_in_sessions_2017.csv";
 
 
-var width = 960,
-    height = 136,
-    cellSize = 17;
+var width = 600,
+    height = 100,
+    cellSize = 10;
 
 var formatPercent = d3.format(".1%");
 
 var color = d3.scaleQuantize()
-    .domain([-0.05, 0.05])
+    .domain([-10,25])
     .range(["#a50026", "#d73027", "#f46d43", "#fdae61", "#fee08b", "#ffffbf", "#d9ef8b", "#a6d96a", "#66bd63", "#1a9850", "#006837"]);
 
 var svg = d3.select("body")
@@ -46,6 +46,11 @@ svg.append("text")
     .attr("font-size", 10)
     .attr("text-anchor", "middle")
     .text(function(d) { return d; });
+
+svg.append("text")
+	
+	.attr("font-size", 10)
+	.text("Students Attending Library Sessions");
 
 var rect = svg.append("g")
     .attr("fill", "none")
