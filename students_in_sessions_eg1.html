@@ -21,9 +21,9 @@
 DATA_FILE = "./students_in_sessions_2017.csv";
 
 
-var width = 600,
+var width = 610,
     height = 100,
-    cellSize = 10;
+    cellSize = 11;
 
 var formatPercent = d3.format(".1%");
 
@@ -48,8 +48,9 @@ svg.append("text")
     .text(function(d) { return d; });
 
 svg.append("text")
-	
-	.attr("font-size", 10)
+	.attr("font-size", 11)
+	.attr("transform","translate(10 -10)")
+	.attr("font-family", "sans-serif")
 	.text("Students Attending Library Sessions");
 
 var rect = svg.append("g")
@@ -98,5 +99,8 @@ function pathMonth(t0) {
 }
 
 </script>
+<br>
+<br>
+<a href=".">Back</a>
 </body>
 </html>
