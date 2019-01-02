@@ -28,7 +28,7 @@ var width = 610,
 var formatPercent = d3.format(".1%");
 
 var color = d3.scaleQuantize()
-    .domain([-10,25])
+    .domain([-30,64])
     .range(["#a50026", "#d73027", "#f46d43", "#fdae61", "#fee08b", "#ffffbf", "#d9ef8b", "#a6d96a", "#66bd63", "#1a9850", "#006837"]);
 
 var svg = d3.select("body")
@@ -51,7 +51,7 @@ svg.append("text")
 	.attr("font-size", 11)
 	.attr("transform","translate(10 -10)")
 	.attr("font-family", "sans-serif")
-	.text("Students Attending Library Sessions");
+	.text("Students Attending Library Sessions 2018");
 
 var rect = svg.append("g")
     .attr("fill", "none")
