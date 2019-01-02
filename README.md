@@ -17,7 +17,9 @@ The Library at Brock University generates a lot of data. Some of that data can b
 ### Data Files
 
 _students_in_sessions_2017.csv_ [link](https://brockdsl.github.io/LibraryDataViz/students_in_sessions_2017.csv)
+
 _students_in_sessions_2018.csv_ [link](https://brockdsl.github.io/LibraryDataViz/students_in_sessions_2018.csv)
+
 _students_in_sessions_total.csv_ [link](https://brockdsl.github.io/LibraryDataViz/students_in_sessions_total.csv)
 
 Data is in two columns, date and number of students that were in a session.
